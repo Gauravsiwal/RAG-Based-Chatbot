@@ -13,7 +13,7 @@ st.title(':green[RAG Based CHATBOT]')
 tips = '''Follow the steps to use this application:
 * Upload your pdf document in sidebar.
 * Write your query and start chatting with the bot.'''
-st.write(tips)
+st.subheader(tips)
 
 # Load PDF in Side Bar
 st.sidebar.title(':orange[UPLOAD YOUR DOCUMENT HERE (PDF Only)]')
@@ -64,9 +64,9 @@ if file_uploaded:
     # Display the History
     for msg in st.session_state.history:
         if msg['role'] == 'user':
-            st.markdown(f'### User: {msg['text']}')
+            st.write(f':green[User:] :blue[{msg['text']}]')
         else:
-            st.markdown(f'### Chatbot: {msg['text']}')
+            st.write(f':orange[Chatbot:]  {msg['text']}')
 
     # Input from the user (Using Steamlit Form)
     with st.form('Chat Form',clear_on_submit=True):
